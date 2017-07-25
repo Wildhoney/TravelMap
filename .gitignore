@@ -1,5 +1,7 @@
 # python
 env
+*.pyc
+__pycache__
 
 # npm
 node_modules
