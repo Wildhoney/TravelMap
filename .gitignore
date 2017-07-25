@@ -4,5 +4,16 @@ env
 # npm
 node_modules
 
+# bower
+bower_components
+
+# purescript
+.pulp-cache
+output
+generated-docs
+.psc*
+.purs*
+.psa*
+
 # ide
 .history
