@@ -4,7 +4,9 @@
   "description": "Pin visited locations on a simple-to-use map, as well as future places you'd love to see. Then share with the world!",
   "main": "src/index.html",
   "scripts": {
-    "test": "ava"
+    "postinstall": "bower i && python3 -m venv env && source env/bin/activate && pip install -r requirements.txt",
+    "test": "ava",
+    "start": "source env/bin/activate && ./api/manage.py runserver 0.0.0.0:${PORT:-3000}"
   },
   "repository": {
     "type": "git",
