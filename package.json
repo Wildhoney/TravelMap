@@ -5,8 +5,9 @@
   "main": "src/index.html",
   "scripts": {
     "postinstall": "bower i && python3 -m venv env && source env/bin/activate && pip install -r requirements.txt",
+    "build": "mkdir -p public/js && pulp browserify --src-path ./frontend --optimise > public/js/flagship.js",
     "test": "ava",
-    "start": "source env/bin/activate && ./api/manage.py runserver 0.0.0.0:${PORT:-3000}"
+    "start": "source env/bin/activate && ./backend/manage.py runserver 0.0.0.0:${PORT:-3000}"
   },
   "repository": {
     "type": "git",
