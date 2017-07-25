@@ -1,0 +1,26 @@
+{
+  "name": "travelmap",
+  "version": "0.1.0",
+  "description": "Pin visited locations on a simple-to-use map, as well as future places you'd love to see. Then share with the world!",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wildhoney/TravelMap.git"
+  },
+  "keywords": [
+    "travel",
+    "map",
+    "pin",
+    "location",
+    "travelling"
+  ],
+  "author": "Adam Timberlake <adam.timberlake@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wildhoney/TravelMap/issues"
+  },
+  "homepage": "https://github.com/Wildhoney/TravelMap#readme"
+}
