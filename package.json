@@ -7,7 +7,8 @@
     "postinstall": "bower i && python3 -m venv env && source env/bin/activate && pip install -r requirements.txt",
     "build": "mkdir -p public/js && pulp browserify --src-path ./frontend --optimise > public/js/flagship.js",
     "test": "ava",
-    "start": "source env/bin/activate && ./backend/manage.py runserver 0.0.0.0:${PORT:-3000}"
+    "start": "source env/bin/activate && ./backend/manage.py migrate && ./backend/manage.py runserver 0.0.0.0:${PORT:-3000}",
+    "clean": "rm -rf .pulp-cache .history bower_components node_modules output env public/js"
   },
   "repository": {
     "type": "git",
