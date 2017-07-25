@@ -1,0 +1,8 @@
+# python
+env
+
+# npm
+node_modules
+
+# ide
+.history
