@@ -19,6 +19,7 @@ generated-docs
 
 # ide
 .history
+.vscode
 
 # public
 public/js
