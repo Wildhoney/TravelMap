@@ -1,8 +1,6 @@
 from django.conf.urls import url
-from django.contrib import admin
-from graphene_django.views import GraphQLView
+from api import views
 
 urlpatterns = [
-    url(r'^administrator/', admin.site.urls),
-    url(r'^graphql', GraphQLView.as_view(graphiql=True)),
+    url(r'^countries/$', views.country_list),
 ]
