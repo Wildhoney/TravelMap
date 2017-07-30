@@ -1,6 +1,7 @@
 from os import path, environ
 
 BASE_DIR = path.dirname(path.dirname(path.abspath(__file__)))
+AUTH_USER_MODEL = 'api.User'
 SECRET_KEY = environ['TM_SECRET']
 DEBUG = True
 ALLOWED_HOSTS = []

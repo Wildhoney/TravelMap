@@ -3,8 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import permissions
-from django.contrib.auth.models import User
-from api.models import Country
+from api.models import Country, User
 from api.serializers import CountrySerializer, UserSerializer
 
 

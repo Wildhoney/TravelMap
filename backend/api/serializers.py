@@ -1,11 +1,12 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
-from api.models import Country, Pinned
+from api.models import Country, Pinned, User
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username')
+        fields = ('id', 'username', 'country')
+        depth = 1
 
 
 class CountrySerializer(serializers.ModelSerializer):
