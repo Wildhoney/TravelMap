@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    country = models.ManyToManyField('api.Country', through='api.Pinned')
+    countries = models.ManyToManyField('api.Country', through='api.Pinned')
 
 
 class Pinned(models.Model):

@@ -5,8 +5,7 @@ from api.models import Country, Pinned, User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'country')
-        depth = 1
+        fields = ('id', 'username', 'countries')
 
 
 class CountrySerializer(serializers.ModelSerializer):
