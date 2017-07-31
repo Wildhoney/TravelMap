@@ -2,12 +2,6 @@ from rest_framework import serializers
 from api.models import Country, Pinned, User
 
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('id', 'username', 'countries')
-
-
 class CountrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Country
@@ -17,4 +11,12 @@ class CountrySerializer(serializers.ModelSerializer):
 class PinnedSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pinned
-        fields = ('country_id', 'user_id', 'type')
+        fields = ('type', 'country_id')
+
+
+class UserSerializer(serializers.ModelSerializer):
+    pins = PinnedSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'countries', 'pins')
