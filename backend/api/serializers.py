@@ -9,9 +9,12 @@ class CountrySerializer(serializers.ModelSerializer):
 
 
 class PinnedSerializer(serializers.ModelSerializer):
+
+    def to_representation(self, value):
+        return [{ "country_id": x.country_id, "type": x.type } for x in value.pinned_set.all()]
+
     class Meta:
         model = Pinned
-        fields = ('type', 'country_id')
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -19,4 +22,4 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'countries', 'pins')
+        fields = ('id', 'username', 'pins')

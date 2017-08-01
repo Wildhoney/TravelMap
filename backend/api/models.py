@@ -2,16 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
-class User(AbstractUser):
-    countries = models.ManyToManyField('api.Country', through='api.Pinned')
-
-
-class Pinned(models.Model):
-    user = models.ForeignKey('api.User', related_name='auth_user', on_delete=models.CASCADE)
-    country = models.ForeignKey('api.Country', related_name='api_country', on_delete=models.CASCADE)
-    type = models.IntegerField()
-
-
 class Country(models.Model):
     id = models.AutoField
     code = models.CharField(max_length=2)
@@ -19,3 +9,13 @@ class Country(models.Model):
 
     class Meta:
         ordering = ('code',)
+
+
+class Pinned(models.Model):
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    country = models.ForeignKey('Country', on_delete=models.CASCADE)
+    type = models.IntegerField()
+
+
+class User(AbstractUser):
+    pins = models.ManyToManyField('Country', through='Pinned')
