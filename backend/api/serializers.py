@@ -11,7 +11,8 @@ class CountrySerializer(serializers.ModelSerializer):
 class PinnedSerializer(serializers.ModelSerializer):
 
     def to_representation(self, value):
-        return [{ "country_id": x.country_id, "type": x.type } for x in value.pinned_set.all()]
+        pin = value.pinned_set.first()
+        return { "country_id": pin.country_id, "type": pin.type }
 
     class Meta:
         model = Pinned
