@@ -2,9 +2,9 @@ from os import path, environ
 
 BASE_DIR = path.dirname(path.dirname(path.abspath(__file__)))
 AUTH_USER_MODEL = 'api.User'
-SECRET_KEY = 'd(@ibe9rh-1q$=t!^*0c^=ojkn*j*&i@+^joz1xm-33a9iym=y'
+SECRET_KEY = environ['TM_SECRET']
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'travelmap-gui.herokuapp.com']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,8 +45,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 's3m0yj43j5fg20ru',
-        'USER': 'm88e5oycllt2elfd',
-        'PASSWORD': 'fs426qx6was0490u',
+        'USER': environ['TM_DB_USER'],
+        'PASSWORD': environ['TM_DB_PASS'],
         'HOST': 'kcpgm0ka8vudfq76.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
         'PORT': '3306',
     }
