@@ -9,16 +9,18 @@ class CountrySerializer(serializers.ModelSerializer):
 
 
 class PinnedSerializer(serializers.ModelSerializer):
-    country_id = serializers.ReadOnlyField(source='country.id')
-    
+
+    def to_representation(self, value):
+        pin = value.pinned_set.first()
+        return { "country_id": pin.country_id, "type": pin.type }
+
     class Meta:
         model = Pinned
-        fields = ('type', 'country_id')
 
 
 class UserSerializer(serializers.ModelSerializer):
-    pinned_set = PinnedSerializer(many=True, read_only=True)
+    pins = PinnedSerializer(many=True, read_only=True)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'pinned_set')
+        fields = ('id', 'username', 'pins')
